@@ -21,47 +21,5 @@ export class AppComponent {
   }
 
 
-  announces:any= [
-    {
-      header :'Cenaze',
-      content:'ömer oğlu osmanın anası öldü',
-      date: new Date(),
-      whose:'@omer'
-    },{
-      header :'Düğün',
-      content:'öer ile osmanın nikahı',
-      date: new Date(),
-      whose:'@omer'
-    },{
-      header :'Sünnet',
-      content:'ömer sünne toldu',
-      date: new Date(),
-      whose:'@omer'
-    },{
-      header :'Açılış',
-      content:'ömer gasilhane açtı',
-      date: new Date(),
-      whose:'@omer'
-    },{
-      header :'Cenaze',
-      content:'ömer oğlu osmanın anası öldü',
-      date: new Date(),
-      whose:'@omer'
-    },{
-      header :'Düğün',
-      content:'öer ile osmanın nikahı',
-      date: new Date(),
-      whose:'@omer'
-    },{
-      header :'Sünnet',
-      content:'ömer sünne toldu',
-      date: new Date(),
-      whose:'@omer'
-    },{
-      header :'Açılış',
-      content:'ömer gasilhane açtı',
-      date: new Date(),
-      whose:'@omer'
-    }
-  ]
+
 }

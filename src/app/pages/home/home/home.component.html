@@ -1,1 +1,61 @@
-<p>home works!</p>
+<div class="card">
+  <p-carousel
+    [value]="announceService.getMock"
+    [numVisible]="4"
+    [numScroll]="1"
+    [circular]="true"
+    [responsiveOptions]="responsiveOptions"
+    autoplayInterval="3000">
+
+    <!--@for (f of announceService.getMock; track f.header) {
+      <p-card [header]="f.header" [style]="{ width: '200px', height:'300px' }">
+        <p class="m-0">
+          {{f.content}}
+        </p>
+
+      </p-card>
+    }-->
+
+    <ng-template let-product pTemplate="item">
+      <div class="border-1 surface-border border-round m-2 p-3">
+        <div class="mb-3">
+          <div class="relative mx-auto">
+            <!--          <img
+                        src="https://primefaces.org/cdn/primeng/images/demo/product/{{ product.image }}"
+                        [alt]="product.name"
+                        class="w-full border-round" />-->
+            <p-tag
+              [value]="product.header"
+              [severity]="getSeverity(product.header)"
+              class="absolute"
+              [ngStyle]="{ 'left.px': 5, 'top.px': 5 }"/>
+          </div>
+        </div>
+        <div class="mb-5 font-medium">
+          {{ product.name }}
+        </div>
+        <div class="flex justify-content-between align-items-center">
+          <div class="mt-0 font-semibold text-xl">
+            {{ product.content }}
+          </div>
+          <span>
+                            <p-button (click)="selectedUser(product)" icon="pi pi-address-book" severity="secondary" [outlined]="true"/>
+                            <!--<p-button icon="pi pi-shopping-cart" styleClass="ml-2"/>-->
+          </span>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+  <p-dialog
+    [header]="this.s?.header"
+    [(visible)]="visible"
+    [modal]="true"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false">
+    <p>
+      {{this.s.content}}
+    </p>
+  </p-dialog>
+</div>
