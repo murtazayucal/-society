@@ -1,12 +1,47 @@
-<div class="card flex justify-content-center align-items-center ">
+
+<div class="card flex justify-content-center align-items-center pt-3 lg:flex-row flex-column">
   <p-listbox
-  [options]="userService.userList"
-  [(ngModel)]="selectedUser"
-  optionLabel="name"
-  [filter]="true"
-  [style]="{ width: '15rem' }"
-  [listStyle]="{'max-height': '220px'}"
+    [options]="userService.userList"
+    [(ngModel)]="selectedUser"
+    optionLabel="name"
+    [filter]="true"
+    [style]="{ width: '18rem', height:'600px' }"
+    [listStyle]="{'height': '600px!important'}"
 
 
-/>
+  ><ng-template let-user pTemplate="item">
+    <div class="flex align-items-center justify-content-between gap-2 w-full">
+      <div>{{ user.name }}</div>
+      <p-button icon="pi pi-user-edit"></p-button>
+    </div>
+  </ng-template>
+    </p-listbox>
+
+  <p-button (onClick)="addUserPanel()" icon="pi pi-plus " class="p-3" [rounded]="true" [text]="true" [raised]="true" [severity]="'success'"></p-button>
 </div>
+
+
+<p-dialog header="Yeni Kullanıcı" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem', height:'70vh' }">
+  <span class="p-text-secondary block mb-5">Yeni kullanıcı bilgilerini girin.</span>
+  <div class="flex align-items-center gap-3 mb-3">
+    <label for="name" class="font-semibold w-3rem">Ad</label>
+    <input pInputText id="name" class="flex-auto" autocomplete="off" />
+  </div>
+  <div class="flex align-items-center gap-3 mb-3">
+    <label for="lastname" class="font-semibold w-3rem">Soyad</label>
+    <input pInputText id="lastname" class="flex-auto" autocomplete="off" />
+  </div>
+  <div class="flex align-items-center gap-3 mb-3">
+    <label for="birthdate" class="font-semibold w-3rem">D.tarihi</label>
+    <p-calendar id="birthdate" />
+  </div>
+
+  <div class="flex align-items-center gap-3 mb-5">
+    <label for="email" class="font-semibold w-3rem">Email</label>
+    <input pInputText id="email" class="flex-auto" autocomplete="off" />
+  </div>
+  <div class="flex justify-content-end gap-2">
+    <p-button label="İptal" severity="secondary" (onClick)="visible = false" />
+    <p-button label="Kaydet" (onClick)="visible = false" />
+  </div>
+</p-dialog>
